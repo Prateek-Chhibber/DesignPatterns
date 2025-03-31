@@ -13,7 +13,12 @@ public class Samosa {
     public static Samosa getSamosa(){
         // object of this class
         if (samosa == null) {
-            samosa = new Samosa();
+            // synchronize block only to block object creation
+            synchronized (Samosa.class) {
+                if (samosa == null) {
+                    samosa = new Samosa();
+                }
+            }
         }
         return samosa;
     }
