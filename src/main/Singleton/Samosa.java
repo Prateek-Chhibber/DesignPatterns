@@ -6,7 +6,10 @@ public class Samosa {
 
     // constructor
     private Samosa(){
-
+        // Prevent the creation of more instances via reflection
+        if (samosa != null) {
+            throw new IllegalStateException("Cannot create another instance of Samosa.");
+        }
     }
 
     // Lazy initialization
